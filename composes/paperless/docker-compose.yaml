@@ -138,7 +138,7 @@ services:
       - ../../volumes/paperless/vault:/vaults/vault
     networks:
       - no-internet
-      - web
+      #- web
     ports:
       - "18080:8080"
 
@@ -147,13 +147,14 @@ services:
       - cryptomator
       - webserver
     image: rclone/rclone:latest
-    deploy:
-      replicas: 1
-      restart_policy:
+    restart: "no"
+    #deploy:
+      #replicas: 1
+      #restart_policy:
         # rclone runs and exit, we emulate cron by restarting it every 50s
         #condition: always
-        condition: any
-        delay: 50s
+        #condition: any
+        #delay: 10m
     command:
       - "sync"
       - "--auto-confirm"
@@ -164,7 +165,6 @@ services:
       - ../../volumes/paperless/media:/data
     networks:
       - no-internet
-      - web
 
 volumes:
   data:
