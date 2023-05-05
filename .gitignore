@@ -1,3 +1,4 @@
 volumes/**
 vault/**
 crypto.env
+.DS_Store

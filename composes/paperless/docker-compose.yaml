@@ -151,7 +151,8 @@ services:
       replicas: 1
       restart_policy:
         # rclone runs and exit, we emulate cron by restarting it every 50s
-        condition: always
+        #condition: always
+        condition: any
         delay: 50s
     command:
       - "sync"
