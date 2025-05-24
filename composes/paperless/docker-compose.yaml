@@ -33,7 +33,7 @@
 version: "3.4"
 services:
   broker:
-    image: docker.io/library/redis:7
+    image: docker.io/library/redis:8
     restart: unless-stopped
     volumes:
       - ../../volumes/paperless/redis_data:/data
@@ -41,7 +41,7 @@ services:
       - no-internet
 
   db:
-    image: docker.io/library/postgres:13
+    image: docker.io/library/postgres:17
     restart: unless-stopped
     volumes:
       - ../../volumes/paperless/postgres_data:/var/lib/postgresql/data
@@ -88,7 +88,7 @@ services:
       https_proxy: https://squidproxy:8080
 
   gotenberg:
-    image: docker.io/gotenberg/gotenberg:7.6
+    image: docker.io/gotenberg/gotenberg:8.20
     restart: unless-stopped
     networks:
       - no-internet
@@ -101,7 +101,7 @@ services:
       - "--chromium-allow-list=file:///tmp/.*"
 
   tika:
-    image: ghcr.io/paperless-ngx/tika:latest
+    image: docker.io/apache/tika:latest
     restart: unless-stopped
     networks:
       - no-internet
