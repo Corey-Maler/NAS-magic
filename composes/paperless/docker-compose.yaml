@@ -41,10 +41,10 @@ services:
       - no-internet
 
   db:
-    image: docker.io/library/postgres:17
+    image: docker.io/library/postgres:16
     restart: unless-stopped
     volumes:
-      - ../../volumes/paperless/postgres_data:/var/lib/postgresql/data
+      - ../../volumes/paperless/postgres16_data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: paperless
       POSTGRES_USER: paperless
@@ -170,6 +170,8 @@ volumes:
   data:
   media:
   pgdata:
+  pg17data:
+  pg16data:
   redisdata:
 
 networks:
